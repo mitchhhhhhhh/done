@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Base</title>
+    <link rel="shortcut icon" href="/static/images/SET/icon.png" />
+    <link rel="stylesheet" href="/static/css/styleD.css">
+</head>
+<body>
+
+
+    <header>
+        <div class ="Hmain">
+            <img src = "/static/images/SET/HEADER.png" height="30%" width="30%">    
+        </div>
+    </header>
+
+
+    <ul>
+        <li><a href="{{url_for('content')}}">Home</a></li>
+        <li><a href="{{url_for('upload_file')}}">Upload</a></li>
+        <li><a href="{{url_for('upload_Genre')}}">Upload Genre</a></li>
+        <li><a href="{{url_for('choose_delete_game')}}">Delete</a></li>
+        {% for item in Genres %}
+            
+         <li><a href="{{url_for('genre',id = item[0] )}}">{{item[1]}}</a></li>
+            
+        {% endfor %}
+        
+    </ul>
+
+    <div class = uploadText>
+        <p>YOU ARE ABOUT TO DELETE: {{name}}</p>
+        <br>
+    </div> 
+
+    <div class = forms>
+        <form action="/Delete/{{id}}" method="post" enctype="multipart/form-data" >
+            
+            <label>Password:</label><br>
+            <input type="password" name="password"><br><br>
+            <input type="submit" value="CONFIRM" >
+
+        </form>
+    </div>
+
+    
+    
+</body>
+<footer>mitch</footer>
+</html>

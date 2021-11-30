@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Base</title>
+    <link rel="shortcut icon" href="/static/images/SET/icon.png" />
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    
+    <header>
+        <div class ="Hmain">
+            <img src = "/static/images/SET/HEADER.png" height="30%" width="30%">    
+        </div>
+    </header>
+
+
+    <ul>
+        <li><a href="{{url_for('content')}}">Home</a></li>
+        <li><a href="{{url_for('upload_file')}}">Upload</a></li>
+        <li><a href="{{url_for('upload_Genre')}}">Upload Genre</a></li>
+        <li><a href="{{url_for('choose_delete_game')}}">Delete</a></li>
+        {% for item in Genres %}
+            
+         <li><a href="{{url_for('genre',id = item[0] )}}">{{item[1]}}</a></li>
+            
+        {% endfor %}
+        
+    </ul>
+
+
+    <div class=genre>
+        <h1>
+            
+            HOME
+            
+        </h1>
+    </div>
+
+    <div class="row">
+        {% for item in results %}
+            
+            <div class="container"> 
+                <a href="{{url_for('game',id = item[0] )}}">
+                <img src= "/static/images/{{item[1]}}"  alt={{item[1]}} class="image" width ="256px" height = "363px">   
+                </a>
+            </div>     
+            
+        {% endfor %}
+    </div>
+</body>
+<footer>mitch</footer>
+</html>
